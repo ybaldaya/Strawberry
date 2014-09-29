@@ -7,8 +7,9 @@
 #include <X11/XKBlib.h>
 
 // Variables
+static Display *dis;
 static bool_quit;
-
+static XWindowAttributes attr;
 // Functions
 static void start();
 
