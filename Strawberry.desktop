@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Strawberry-wm
+Encoding=UTF-8
+Comment=Improved dynamic window manager
+Exec=strawberry
+TryExec=strawberry
+Type=Application
