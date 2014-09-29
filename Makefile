@@ -16,3 +16,6 @@ MANEXEC = docs=${EXEC}.1
 
 FILE_DESKTOP = Strawberry.desktop
 XSDIR?= /usr/share/xsessions
+
+
+
