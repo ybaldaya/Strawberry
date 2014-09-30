@@ -7,9 +7,11 @@
 #include <X11/XKBlib.h>
 
 // Variables
-static Display *dis;
-static bool_quit;
-static XWindowAttributes attr;
+static Display *dis; // open X server that controls a display
+static bool_quit; // Event Structures
+static XWindowAttributes attr; // Obtaining Window Information 
+static XButtonEvent starter; // xbutton 
+
 // Functions
 static void start();
 
@@ -28,6 +30,11 @@ void start(){
 
 int main (){
 
+	// Open display
+	if (!(dis = XOpenDisplay(NULL))) {
+		logger("\033[1;31mCannot open display!"); // in red color 
+		exit(1);
+	}
 
 	// start wm
 	start();
