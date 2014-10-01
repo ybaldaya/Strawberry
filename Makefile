@@ -17,5 +17,22 @@ MANEXEC = docs=${EXEC}.1
 FILE_DESKTOP = Strawberry.desktop
 XSDIR?= /usr/share/xsessions
 
+CC=gcc
 
+all: $(EXEC)
+	$(CC) $(LDFLAGS) -s -ffast-math -fno-unit-at-a-time -o src/$@ $+ $(LDADD)
+
+install: all
+	install -Dm 755 src/strawberry $(DESTDIR)$(BINDIR)/
+	cp ${FILE_DESKTOP} ${XSDIR}/
+	cp ${MANEXEC} ${MANPREFIX}
+
+clean:
+	rm -fv src/*.o src/${EXEC}
+
+uninstall:
+	@echo removing all files...
+	@rm -f ${DESTDIR}${BINDIR}/${EXEC}
+	@rm -f ${MANPREFIX}${EXEC}.1
+	@rm -f ${XSDIR}/${FILE_DESKTOP}
 
