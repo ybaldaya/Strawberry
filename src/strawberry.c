@@ -8,7 +8,7 @@
 
 // Variables
 static Display *dis; // open X server that controls a display
-static bool_quit; // Event Structures
+static bool_quit; 
 static XWindowAttributes attr; // Obtaining Window Information 
 static XButtonEvent starter; // xbutton 
 
@@ -16,7 +16,7 @@ static XButtonEvent starter; // xbutton
 static void start();
 
 void start(){
-	XEvent ev;
+	XEvent ev; // Event Structures
 
 	while(!bool_quit && !XNextEvent(dis,&ev)){
 		if(events[ev.type])
